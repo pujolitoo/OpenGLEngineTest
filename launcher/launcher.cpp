@@ -78,7 +78,7 @@ bool IsRunning()
             if(!entryProc.compare(procName))
             {
                 pCount++;
-                if(pCount>=2) isRunning = true;
+                if(pCount>=2){ isRunning = true; break; };
             }        
         }
     }else
