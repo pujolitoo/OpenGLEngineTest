@@ -10,7 +10,11 @@ set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 file(GLOB_RECURSE LAUNCHER_SOURCE "${LAUNCHER_SRC_DIR}/*.cpp")
 
-add_executable(${PROJECT_NAME} ${LAUNCHER_SOURCE})
+if(WIN32)
+    add_executable(${PROJECT_NAME} WIN32 ${LAUNCHER_SOURCE})
+else()
+    add_executable(${PROJECT_NAME} ${LAUNCHER_SOURCE})
+endif()
 
 add_subdirectory(${VENDOR_DIR}/glad)
 add_subdirectory(${VENDOR_DIR}/glfw)
