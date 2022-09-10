@@ -100,6 +100,14 @@ int WinMain(
 ) 
 { 
 
+#if defined(DEBUG) || defined(_DEBUG)
+    #if defined(__MINGW32__) || defined(__MINGW64__)
+    #else
+        AllocConsole();
+        freopen("CONOUT$", "w", stdout);
+    #endif
+#endif
+
     //Global vars
 
     HINSTANCE hinstLib; 
