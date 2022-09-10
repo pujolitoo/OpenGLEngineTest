@@ -8,6 +8,7 @@
 #include "IndexBuffer.h"
 #include "VertexBuffer.h"
 #include "RenderCommand.h"
+#include "GLContext.h"
 
 #include <glm.hpp>
 #include <gtc/matrix_transform.hpp>
@@ -136,19 +137,11 @@ extern "C"{
         glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
         glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-        glfwMakeContextCurrent(window);
-
-        if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-        {
-            MessageBox(NULL, TEXT("Error while loading GLAD"), TEXT("ERROR"), MB_ICONERROR);
-            return -1;
-        }
+        GLContext::Init(window);
 
         glfwSetScrollCallback(window, scroll_callback);
 
         glfwSwapInterval(1);
-
-        LOG("OpenGL Version: " << glGetString(GL_VERSION));
 
         //Setup log callback
 
@@ -159,7 +152,6 @@ extern "C"{
         unsigned int vaoId;
         glGenVertexArrays(1, &vaoId);
         glBindVertexArray(vaoId);
-        LOG("VAOID: " << vaoId);
 
         float pos[] = {
                         /* Coords */                /*Colors*/              /*Texture Coordinates*/
@@ -219,8 +211,6 @@ extern "C"{
         //Init shaders
 
         ShaderProgram shader1 = LoadShaderFromFile("shdr1.glsl");
-
-        LOG(shader1.vertexShader << shader1.fragmentShader);
 
         glm::mat4 proj = glm::ortho(-1.5f, 1.5f, -1.5f, 1.5f);
 

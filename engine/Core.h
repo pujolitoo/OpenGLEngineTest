@@ -2,6 +2,8 @@
 
 #define E_ASSERT(x, message) if(!x){std::cout << message << std::endl;}
 
+#define LOG(x) std::cout << "[Main]: " << x << std::endl
+
 #if defined(_WIN64) || defined(WIN32)
     #define E_PLATFORM_WINDOWS
 #endif

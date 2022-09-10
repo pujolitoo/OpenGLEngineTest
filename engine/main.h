@@ -11,7 +11,5 @@
     #define APIEXPORT __declspec(dllexport)
 #endif
 
-#define LOG(x) std::cout << "[Main]: " << x << std::endl
-
 
 #endif //MAIN_H
