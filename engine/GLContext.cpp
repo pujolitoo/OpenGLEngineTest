@@ -11,5 +11,5 @@ void GLContext::Init(GLFWwindow* window)
         E_ASSERT(false, "OpenGL context error.");
     }
 
-    LOG(glGetString(GL_VERSION));
+    LOG("OpenGL Version: " << glGetString(GL_VERSION));
 }
