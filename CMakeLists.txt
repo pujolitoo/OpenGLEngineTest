@@ -34,3 +34,6 @@ target_link_libraries(engine PUBLIC glfw)
 
 file(COPY res/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
+file(COPY res/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Debug)
+file(COPY res/ DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/Release)
+

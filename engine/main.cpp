@@ -18,9 +18,9 @@
 
 void imguiUpdate(int &count);
 
-void oglLogCallback(GLenum source​, GLenum type​, GLuint id​, GLenum severity​, GLsizei length​, const GLchar* message​, const void* userParam​)
+void oglLogCallback(GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length, const GLchar* message, const void* userParam)
 {
-    std::cout << message​ << std::endl;
+    std::cout << message << std::endl;
 }
 
 enum ShaderType
